@@ -8,7 +8,7 @@ use App\Models\NewsCategory;
 
 class NewsController extends Controller
 {
-    protected $newsModel, $newsCategory;
+    protected $newsModel, $newsCategory, $newsCategoryModel;
 
     public function __construct() {
         $this->newsModel = new News;
@@ -35,7 +35,7 @@ class NewsController extends Controller
         if(!$category_exist) return redirect('/noticias');
 
         $activePage = "noticias";
-        $news = $this->newsModel->newsPaginateByCategory(10, $category_alias);
+        $news = $this->newsModel->newsPaginateByCategory(12, $category_alias);
         $categories = $this->newsCategoryModel->allCategories();
         return view('news', compact('activePage', 'news', 'categories'));
 
