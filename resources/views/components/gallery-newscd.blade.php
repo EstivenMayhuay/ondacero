@@ -37,12 +37,16 @@
                       </h2>
                       <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
+                            <ul>
+                                @for ($i = 0; $i < count($years); $i++)
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="{{$years[$i]->year}}" id="{{$years[$i]->year}}">
+                                        <label class="form-check-label" for="{{$years[$i]->year}}">{{$years[$i]->year}}</label>
+                                    </div>
+                                @endfor
+                            </ul>
                             {{--  <ul>
                                 @foreach ($years as $index => $year)
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="{{$year[$index]->year}}" id="{{$year[$index]->year}}">
-                                        <label class="form-check-label" for="{{$year[$index]->year}}">{{$year[$index]->year}}</label>
-                                    </div>
                                 @endforeach
                             </ul>  --}}
                         </div>

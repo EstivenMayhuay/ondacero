@@ -24,21 +24,22 @@ class NewsController extends Controller
         $activePage = "noticias";
         $news = $this->newsModel->newsPaginate(12);
         $categories = $this->newsCategoryModel->allCategories();
-        return view('news', compact('activePage', 'news', 'categories'));
+        $years = $this->newsModel->getNewsYear();
+        return view('news', compact('activePage', 'news', 'categories', 'years'));
     }
 
     public function newsByCategory ($category_alias)
     {
         try {
-        $category_exist = $this->newsCategoryModel->existsCategory($category_alias);
+            $category_exist = $this->newsCategoryModel->existsCategory($category_alias);
 
-        if(!$category_exist) return redirect('/noticias');
+            if(!$category_exist) return redirect('/noticias');
 
-        $activePage = "noticias";
-        $news = $this->newsModel->newsPaginateByCategory(12, $category_alias);
-        $categories = $this->newsCategoryModel->allCategories();
-        return view('news', compact('activePage', 'news', 'categories'));
-
+            $activePage = "noticias";
+            $news = $this->newsModel->newsPaginateByCategory(12, $category_alias);
+            $categories = $this->newsCategoryModel->allCategories();
+            $years = $this->newsModel->getNewsYear();
+            return view('news', compact('activePage', 'news', 'categories', 'years'));
         } catch (\Throwable $th) {
         }
     }

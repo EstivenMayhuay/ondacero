@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="py-5 px-4">
-        <x-gallery-newscd :news="$news" :categories="$categories" :showFilter="true"/>
+        <x-gallery-newscd :news="$news" :categories="$categories" :showFilter="true" :years="$years"/>
         <div class="d-flex my-4 justify-content-end paginator">
             {{ $news->links()}}
         </div>

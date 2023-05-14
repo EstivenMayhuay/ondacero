@@ -53,6 +53,7 @@ class News extends Model
     public function getNewsYear () {
         return DB::table('j_gallery_noticias')
         ->select(DB::raw('distinct year (fecCreado) as year'))
+        ->orderBy('year', 'desc')
         ->get();
     }
 }
