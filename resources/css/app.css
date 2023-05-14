@@ -346,7 +346,6 @@ Layouts
     /* Main Content */
     .content {
         --wBannerPadding: calc(var(--w-banner) + 2rem);
-        border: 8px solid purple;   
         display: grid;
         grid-template-columns: var(--wBannerPadding) auto var(--wBannerPadding);
     }
