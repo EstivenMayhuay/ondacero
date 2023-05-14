@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     @include('layout.head')
-    <title>Onda Cero</title>
+    <title>Radio Onda Cero</title>
 <body>
     @include('layout.header')
 
