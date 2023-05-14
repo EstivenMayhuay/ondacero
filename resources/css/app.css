@@ -407,6 +407,5 @@ Layouts
     .main {
         width: var(--w-main-xl);
         max-width: var(--w-main-xl);
-        border: 2px solid black;
     }
 }
