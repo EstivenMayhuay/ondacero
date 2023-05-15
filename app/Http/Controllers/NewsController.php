@@ -60,7 +60,7 @@ class NewsController extends Controller
     public function newsByCategory ($category_alias, Request $request)
     {
         try {
-            if($request->has('categoria')) return redirect("/noticias?categoria={$request->categoria}");
+            if($request->has('categoria') && $request->has('year')) return redirect("/noticias?categoria={$request->categoria}&year={$request->year}");
 
             $category_exist = $this->newsCategoryModel->existsCategory($category_alias);
 
