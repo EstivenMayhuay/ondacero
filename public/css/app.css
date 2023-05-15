@@ -98,6 +98,14 @@ Colors
     color: var(--bg-site);
 }
 
+.onda-bg-primary {
+    background-color: var(--primary-color);
+}
+
+.onda-bg-dark {
+    background-color: var(--bg-footer);
+}
+
 /*
 ---------------------------
 Paginate
@@ -413,3 +421,4 @@ Layouts
         max-width: var(--w-main-xl);
     }
 }
+

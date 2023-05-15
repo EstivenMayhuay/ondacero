@@ -94,6 +94,14 @@ Colors
     color: var(--bg-site);
 }
 
+.onda-bg-primary {
+    background-color: var(--primary-color);
+}
+
+.onda-bg-dark {
+    background-color: var(--bg-footer);
+}
+
 /*
 ---------------------------
 Paginate

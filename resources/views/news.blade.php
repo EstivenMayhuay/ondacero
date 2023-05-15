@@ -6,7 +6,7 @@
         <div class="d-flex my-4 justify-content-end paginator">
             {{ $news->links()}}
         </div>
-        <div class="pagination-wrapper">
+        <div class="pagina  tion-wrapper">
         </div>
     </section>
 @endsection

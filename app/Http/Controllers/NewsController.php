@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\NewsCategory;
@@ -19,24 +20,57 @@ class NewsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
         $activePage = "noticias";
-        $news = $this->newsModel->newsPaginate(12);
         $categories = $this->newsCategoryModel->allCategories();
         $years = $this->newsModel->getNewsYear();
+
+        // Filter
+        if($request->has('categoria') && $request->has('year')) {
+            // $rules = [
+            //     'categoria' => 'required',
+            //     'year' => 'required'
+            // ];
+
+            // $messages = [
+            //     'categoria.required' => "El campo categoría es requerido",
+            //     'year.required' => "El campo año es requerido"
+            // ];
+
+            // $validator = Validator::make($request->all(), $rules, $messages);
+
+            // if($validator->fails()){
+            //     return redirect()->back()->withErrors($validator)->withInput();
+            $settings = [
+                'categoryAlias' =>  $request->categoria,
+                'year' => $request->year
+            ];
+
+            $news = $this->newsModel->newsPaginateFilter(12, $settings);
+            $news->appends(request()->except('page'));
+        } else {
+            $news = $this->newsModel->newsPaginate();
+        }
+
         return view('news', compact('activePage', 'news', 'categories', 'years'));
     }
 
-    public function newsByCategory ($category_alias)
+    public function newsByCategory ($category_alias, Request $request)
     {
         try {
+            if($request->has('categoria')) return redirect("/noticias?categoria={$request->categoria}");
+
             $category_exist = $this->newsCategoryModel->existsCategory($category_alias);
 
             if(!$category_exist) return redirect('/noticias');
 
             $activePage = "noticias";
-            $news = $this->newsModel->newsPaginateByCategory(12, $category_alias);
+            $settings = [
+                'categoryAlias' => $category_alias
+            ];
+            $news = $this->newsModel->newsPaginateFilter(12, $settings);
             $categories = $this->newsCategoryModel->allCategories();
             $years = $this->newsModel->getNewsYear();
             return view('news', compact('activePage', 'news', 'categories', 'years'));

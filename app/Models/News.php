@@ -13,7 +13,7 @@ class News extends Model
 
     protected $table = "j_gallery_noticias";
 
-    public function newsByLimit($limit = 10, $destacado = false) {
+    public function newsByLimit($limit = 12, $destacado = false) {
         $news = DB::table('j_gallery_noticias')
         ->select('j_gallery_noticias.*', 'j_gallery_images.*', 'j_gallery_noticias_categorias.nombre AS catName')
         ->join('j_gallery_images', 'j_gallery_noticias.idPhoto', '=', 'j_gallery_images.idPhoto')
@@ -26,7 +26,7 @@ class News extends Model
         return $news;
     }
 
-    public function newsPaginate ($count = 10) {
+    public function newsPaginate ($count = 12) {
         $news = DB::table('j_gallery_noticias')
         ->select('j_gallery_noticias.*', 'j_gallery_images.*', 'j_gallery_noticias_categorias.nombre AS catName')
         ->join('j_gallery_images', 'j_gallery_noticias.idPhoto', '=', 'j_gallery_images.idPhoto')
@@ -37,15 +37,24 @@ class News extends Model
         return $news;
     }
 
+    /*
+        $categoryFilters = [
+            'year' => 2023,
+            'categoryAlias' => 'musica'
+        ]
+    */
+    public function newsPaginateFilter($count = 12, $categoryFilters) {
+        $query = DB::table('j_gallery_noticias');
 
-    public function newsPaginateByCategory ($count = 10, $category_alias = "") {
-        $news = DB::table('j_gallery_noticias')
-        ->select('j_gallery_noticias.*', 'j_gallery_images.*', 'j_gallery_noticias_categorias.nombre AS catName')
-        ->join('j_gallery_images', 'j_gallery_noticias.idPhoto', '=', 'j_gallery_images.idPhoto')
-        ->join('j_gallery_noticias_categorias', 'j_gallery_noticias_categorias.idCat', '=', 'j_gallery_noticias.idCat')
-        ->where('j_gallery_noticias_categorias.alias', $category_alias)
-        ->orderBy('entry', 'desc')
-        ->paginate($count);
+        if(array_key_exists('year', $categoryFilters)) $query->whereYear('j_gallery_noticias.fecCreado', $categoryFilters['year']);
+
+        if(array_key_exists('categoryAlias', $categoryFilters)) $query->where('j_gallery_noticias_categorias.alias', $categoryFilters['categoryAlias']);
+
+        $query->select('j_gallery_noticias.*', 'j_gallery_images.*', 'j_gallery_noticias_categorias.nombre AS catName');
+        $query->join('j_gallery_images', 'j_gallery_noticias.idPhoto', '=', 'j_gallery_images.idPhoto');
+        $query->join('j_gallery_noticias_categorias', 'j_gallery_noticias_categorias.idCat', '=', 'j_gallery_noticias.idCat');
+
+        $news = $query->orderBy('entry', 'desc')->paginate($count);
 
         return $news;
     }
