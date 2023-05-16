@@ -30,8 +30,8 @@
 
         .galleryRanking__item {
             position: relative;
-            width: 220px;
-            max-width: 220px;
+            width: calc(100% - 2rem);
+            max-width: calc(100% - 2rem);
             margin: 0 auto;
         }
 
@@ -74,6 +74,11 @@
             .galleryRanking {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 1.5rem;
+            }
+
+            .galleryRanking__item {
+                width: 220px;
+                max-width: 220px;
             }
         }
 
