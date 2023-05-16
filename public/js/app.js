@@ -5321,19 +5321,20 @@ function toggleMenuNav() {
   $menu.classList.toggle("show");
   $areaHiddenMenu.classList.toggle("show");
 }
+var showLoader = function showLoader() {
+  window.addEventListener('beforeunload', function () {
+    return document.getElementById("appLoader").style.display = "flex";
+  });
+  window.addEventListener('load', function () {
+    return document.getElementById("appLoader").style.display = "none";
+  });
+};
 
 /* Events */
 $btnMenu.addEventListener('click', toggleMenuNav);
 $btnCloseMenu.addEventListener('click', toggleMenuNav);
 $areaHiddenMenu.addEventListener('click', toggleMenuNav);
-window.addEventListener('beforeunload', function () {
-  console.log('show loader');
-  document.getElementById("appLoader").style.display = "flex";
-});
-window.addEventListener('load', function () {
-  console.log('hide loader');
-  document.getElementById("appLoader").style.display = "none";
-});
+showLoader();
 
 /***/ }),
 
