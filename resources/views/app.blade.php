@@ -12,7 +12,6 @@
         <div class="spinner-border m-5 color-text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
-        <h6 class="fs-4 text-white">Cargando...</h6>
     </div>
 
     <main class="content">
