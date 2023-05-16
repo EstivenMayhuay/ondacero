@@ -25,7 +25,7 @@
             display: grid;
             grid-template-columns: 1fr;
             align-content: center;
-            row-gap: 1rem;
+            gap: 1.5rem;
         }
 
         .galleryRanking__item {
@@ -73,7 +73,6 @@
         @media screen and (min-width: 768px) {
             .galleryRanking {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 1.5rem;
             }
 
             .galleryRanking__item {
