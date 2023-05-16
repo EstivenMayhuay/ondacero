@@ -93,10 +93,10 @@
 
         @keyframes shake {
             from {
-                transform: rotate(3deg);
+                transform: rotate(1deg);
             }
             to {
-                transform: rotate(-3deg);
+                transform: rotate(-1deg);
             }
         }
 
