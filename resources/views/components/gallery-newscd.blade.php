@@ -1,13 +1,12 @@
 <div class="newsContent">
     @if ($showFilter)
-        <div class="newsContent__filter">
-            <div class="d-flex justify-content-end mb-5">
-                <div class="filters me-4">
-                    <form id="frmFiltersNews" class="d-flex align-items-center justify-content-center h-100" method="GET">
-                        <div class="input-group input-group-sm me-4 position-relative">
-                            <span class="input-group-text py-2 px-4 bg-transparent border-0 fw-bold" >Categorías</span>
+        <div class="newsContent__filter mb-5">
+            <div class="d-flex justify-content-center">
+                <div class="filters">
+                    <form id="frmFiltersNews" class="d-sm-flex flex-md-row flex-sm-column h-100" method="GET">
+                        <div class="input-group input-group-sm position-relative mb-4 m-md-0 me-md-4">
                             <select class="form-select form-select-sm shadow-none border-0" aria-label=".form-select-sm example" name="categoria" required>
-                                <option hidden></option>
+                                <option hidden value="">Categoría</option>
                                 @foreach ($categories as $category)
                                     @if (request()->has('categoria') && request()->input('categoria') == $category->alias)
                                         <option value="{{$category->alias}}" selected>{{$category->nombre}}</option>
@@ -17,11 +16,9 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="input-group input-group-sm position-relative">
-                            <span class="input-group-text py-2 px-4 border-0 bg-transparent fw-bold">Año</span>
+                        <div class="input-group input-group-sm position-relative mb-4 m-md-0 me-md-4">
                             <select class="form-select form-select-sm shadow-none border-0" aria-label=".form-select-sm example" name="year" required>
-                                <option hidden></option>
-
+                                <option hidden value="">Año</option>
                                 @for ($i = 0; $i < count($years); $i++)
                                     @if (request()->has('year') && request()->input('year') == $years[$i]->year)
                                         <option value="{{$years[$i]->year}}" selected>{{$years[$i]->year}}</option>
@@ -31,12 +28,12 @@
                                 @endfor
                             </select>
                         </div>
+                        <button class="border-0 outline-0 px-3 py-2 onda-bg-primary rounded w-100" id="btnOpenFilterNews"  type="submit" form="frmFiltersNews">
+                            <i class='bx bx-filter-alt text-dark fw-bold'></i>
+                            <span class="text-dark fw-bold">Filtrar</span>
+                        </button>
                     </form>
                 </div>
-                <button class="border-0 outline-0 px-3 py-2 onda-bg-primary rounded" id="btnOpenFilterNews"  type="submit" form="frmFiltersNews">
-                    <i class='bx bx-filter-alt text-dark fw-bold'></i>
-                    <span class="text-dark fw-bold">Filtrar</span>
-                </button>
             </div>
 
         </div>

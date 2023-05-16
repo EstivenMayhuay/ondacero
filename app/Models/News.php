@@ -32,7 +32,7 @@ class News extends Model
         ->join('j_gallery_images', 'j_gallery_noticias.idPhoto', '=', 'j_gallery_images.idPhoto')
         ->join('j_gallery_noticias_categorias', 'j_gallery_noticias_categorias.idCat', '=', 'j_gallery_noticias.idCat')
         ->orderBy('entry', 'desc')
-        ->paginate($count);
+        ->paginate($count)->onEachSide(0);
 
         return $news;
     }
@@ -54,7 +54,7 @@ class News extends Model
         $query->join('j_gallery_images', 'j_gallery_noticias.idPhoto', '=', 'j_gallery_images.idPhoto');
         $query->join('j_gallery_noticias_categorias', 'j_gallery_noticias_categorias.idCat', '=', 'j_gallery_noticias.idCat');
 
-        $news = $query->orderBy('entry', 'desc')->paginate($count);
+        $news = $query->orderBy('entry', 'desc')->paginate($count)->onEachSide(0);
 
         return $news;
     }
