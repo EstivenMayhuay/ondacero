@@ -2,7 +2,7 @@
 
 > Radio Onda Cero es una emisora de radio peruana que opera a nivel nacional. Es una de las estaciones de radio más populares y reconocidas en el país. La emisora transmite una variedad de programas de entretenimiento, música, noticias y deportes. Radio Onda Cero se caracteriza por su programación diversa y su enfoque en brindar información actualizada y entretenimiento de calidad a su audiencia.
 
-### *Problemática**
+### **Problemática**
 
 > Actualmente Radio Onda Cero tiene como principal fuente de ingresos los anuncios (publicidades) por redes sociales y la web site, siendo esta última la que menos vistas esta generando entre las diversas causas se encuentran
 
