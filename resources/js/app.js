@@ -20,6 +20,14 @@ function toggleMenuNav () {
 $btnMenu.addEventListener('click', toggleMenuNav)
 $btnCloseMenu.addEventListener('click', toggleMenuNav)
 $areaHiddenMenu.addEventListener('click', toggleMenuNav)
+window.addEventListener('beforeunload', () => {
+    console.log('show loader');
+    document.getElementById("appLoader").style.display = "flex";
+})
+window.addEventListener('load', () => {
+    console.log('hide loader');
+    document.getElementById("appLoader").style.display = "none";
+})
 
 
 

@@ -32,6 +32,7 @@
 }
 
 body {
+    display: none;
     position: relative;
     display: block;
     width: 100%;
@@ -39,6 +40,22 @@ body {
     min-height: 100vh;
     /* background-color: var(--bg-site); */
     z-index: 0;
+}
+
+/* Loader */
+#appLoader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-flow: column;
+    width: 100%;
+    min-width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    overflow: hidden;
 }
 
 /* Main Content */
