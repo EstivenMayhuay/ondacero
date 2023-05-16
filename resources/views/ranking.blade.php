@@ -8,5 +8,6 @@
 @endsection
 
 @section('customScripts')
+    <script src="{{ mix('js/ranking.js') . '?v=' . rand(1,100) }}"></script>
 @endsection
 

@@ -14,6 +14,7 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/slider.js', 'public/js')
     .js('resources/js/news.js', 'public/js')
+    .js('resources/js/ranking.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         //
     ]);

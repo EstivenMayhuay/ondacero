@@ -1,11 +1,14 @@
-<div class="contentGalleryRanking">
+<div class="contentGalleryRanking position-relative">
+    <section class="galleryReproductor d-flex justify-content-center my-5">
+        <audio src="https://ondacero.com.pe/j/music/" controls id="audioMusic"></audio>
+    </section>
     <section class="galleryRanking">
         @foreach ($arrMusics as $music)
             <article class="galleryRanking__item rounded bg-white">
                 <div  class="galleryRanking__item__image d-block mw-100">
-                    <img src="https://ondacero.com.pe/j/images/rankings/{{$music->urlPhoto}}" alt="{{$music->titleSong}}" width="120" height="auto" class="w-100">
-                    <button class="galleryRanking__play border-0 p-0 m-0 rounded-circle onda-bg-green d-flex align-items-center justify-content-center">
-                        <i class='bx bx-play text-white fw-bold'></i>
+                    <img src="https://ondacero.com.pe/j/images/rankings/{{$music->urlPhoto}}" alt="{{$music->titleSong}}" width="120" height="auto" class="w-100" loading="lazy">
+                    <button class="galleryRanking__play border-0 p-0 m-0 rounded-circle onda-bg-green d-flex align-items-center justify-content-center" data-url-song="{{$music->urlSong}}">
+                        <i class='bx bx-play text-white fw-bold' data-url-song="{{$music->urlSong}}"></i>
                     </button>
                 </div>
                 <p class="galleryRanking__position d-flex align-items-center justify-content-center m-0 p-2 onda-bg-primary rounded-circle fw-bold shadow">{{$music->position}}</p>
@@ -21,6 +24,13 @@
 <b:push>
 
     <style>
+        .galleryReproductor {
+            position: sticky;
+            top: 1rem;
+            margin-bottom: 4rem;
+            z-index: 99;
+        }
+
         .galleryRanking {
             display: grid;
             grid-template-columns: 1fr;
