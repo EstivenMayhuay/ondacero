@@ -2,7 +2,8 @@
 
 @section('content')
     <section class="py-5 px-4">
-        <x-ranking-gallery :arrMusics="$musicRankings" />
+        <h2 class="color-text-secondary mb-4 fs-3 text-font-bold">Semana Ranking: {{$musicRankings->week}}</h2>
+        <x-ranking-gallery :arrMusics="$musicRankings->results" />
     </section>
 @endsection
 

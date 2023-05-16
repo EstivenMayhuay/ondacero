@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 
 class Ranking extends Model
@@ -31,6 +32,9 @@ class Ranking extends Model
             array_push($musicRankings, $song);
         }
 
-        return $musicRankings;
+        return (object)[
+            'week' => Carbon::parse($songsArr->semanaRanking)->format('d/m/Y'),
+            'results' => $musicRankings
+        ];
     }
 }
