@@ -15,8 +15,8 @@
                     <span class="mx-1">Noticias</span>
                 </a>
             </li>
-            <li class="menu__item">
-                <a href="" class="d-flex align-items-center">
+            <li class="menu__item {{$activePage == "ranking" ? 'active' : ''}}">
+                <a href="/musica/ranking" class="d-flex align-items-center">
                     <i class='bx bxs-bar-chart-alt-2 fs-3'></i>
                     <span class="mx-1">Ranking</span>
                 </a>

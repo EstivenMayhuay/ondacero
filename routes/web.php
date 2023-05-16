@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\RankingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,3 +18,5 @@ use App\Http\Controllers\NewsController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/noticias', [NewsController::class, 'index']);
 Route::get('/noticias/categoria/{category_alias}', [NewsController::class, 'newsByCategory']);
+
+Route::get('/musica/ranking', [RankingController::class, 'index']);

@@ -115,6 +115,10 @@ Colors
     background-color: var(--primary-color);
 }
 
+.onda-bg-green {
+    background-color: var(--second-color);
+}
+
 .onda-bg-dark {
     background-color: var(--bg-footer);
 }
