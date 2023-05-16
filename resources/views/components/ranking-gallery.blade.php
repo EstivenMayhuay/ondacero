@@ -28,7 +28,7 @@
             position: sticky;
             top: 1rem;
             margin-bottom: 4rem;
-            z-index: 99;
+            z-index: 92;
         }
 
         .galleryRanking {
