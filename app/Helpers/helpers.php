@@ -24,3 +24,46 @@ function formatHumanPassedTime($datetime = "2023-05-12 15:25:56") {
 
     return $date;
 }
+
+function getNameByNumberDay ($numberDay = 3)  {
+    $arrDays = (object)[
+        (object)[
+            'dayNumber' => 1,
+            'dayName' => 'Lunes'
+        ],
+        (object)[
+            'dayNumber' => 2,
+            'dayName' => 'Martes'
+        ],
+        (object)[
+            'dayNumber' => 3,
+            'dayName' => 'Miércoles'
+        ],
+        (object)[
+            'dayNumber' => 4,
+            'dayName' => 'Jueves'
+        ],
+        (object)[
+            'dayNumber' => 5,
+            'dayName' => 'Viernes'
+        ],
+        (object)[
+            'dayNumber' => 6,
+            'dayName' => 'Sábado'
+        ],
+        (object)[
+            'dayNumber' => 7,
+            'dayName' => 'Domingo'
+        ]
+    ];
+
+    $value = null;
+
+    foreach ($arrDays as $objDay) {
+        if($objDay->dayNumber == $numberDay) {
+            $value = $objDay->dayName;
+        }
+    }
+
+    return $value;
+}

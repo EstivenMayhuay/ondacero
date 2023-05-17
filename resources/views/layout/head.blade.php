@@ -3,6 +3,9 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta http-equiv="X-UA-Compatible" content="IE=7">
 
+<!-- Analitycs Vercel -->
+<script defer src="/_vercel/insights/script.js"></script>
+
 <!-- CSS & JS -->
 <script src="{{ mix('js/app.js')  }}" defer></script>
 <link href="{{ mix('css/app.css') . "?=" . rand(1, 100); }}" rel="stylesheet"></head>

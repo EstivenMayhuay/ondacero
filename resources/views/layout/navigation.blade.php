@@ -21,8 +21,8 @@
                     <span class="mx-1">Ranking</span>
                 </a>
             </li>
-            <li class="menu__item">
-                <a href="" class="d-flex align-items-center">
+            <li class="menu__item {{$activePage == "programs" ? 'active' : ''}}">
+                <a href="/programas" class="d-flex align-items-center">
                     <i class='bx bx-radio fs-3'></i>
                     <span class="mx-1">Programas</span>
             </li>
