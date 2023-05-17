@@ -39,6 +39,9 @@
         }
 
         @media screen and (min-width: 1024px) {
+            .programs__item {
+                width: 560px;
+            }
         }
     </style>
 
