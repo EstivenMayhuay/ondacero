@@ -17,6 +17,13 @@
 - Vanilla JS
 - CSS & Boostrap 5.2
 
+### **Views**
+
+![Home](./images/screen-1.png)
+![Noticias](./images/screen-2.png)
+![Ranking](./images/screen-3.png)
+![Programas](./images/screen-4.png)
+
 ### *Resources*
 
 - [Deploy laravel with css and js files](https://imagdic.me/blog/deploying-laravel-application-to-vercel/)
